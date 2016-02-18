@@ -10,3 +10,4 @@
 [submodule "apps/ofCG221Apps"]
 	path = apps/ofCG221Apps
 	url = ssh://cglab.ik.w-hs.de/gitrepos/ofCG221Apps
+
