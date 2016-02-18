@@ -4,9 +4,6 @@
 [submodule "addons/ofxBullet"]
 	path = addons/ofxBullet
 	url = https://github.com/tsky1971/ofxBullet.git
-[submodule "addons/ofxCG221"]
-	path = addons/ofxCG221
-	url = ssh://cglab.ik.w-hs.de/gitrepos/ofxCG221
 [submodule "apps/ofCG221Apps"]
 	path = apps/ofCG221Apps
 	url = ssh://cglab.ik.w-hs.de/gitrepos/ofCG221Apps
