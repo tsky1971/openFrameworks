@@ -434,7 +434,7 @@ Module{
     Properties{
         condition: qbs.targetOS.contains("linux") || platform === "msys2"
         cpp.cxxFlags: PKG_CONFIG_CFLAGS
-            .concat(['-Wno-unused-parameter','-std=gnu++14'])
+            .concat(['-Wno-unused-parameter','-std=gnu++11'])
             .concat(ADDON_PKG_CONFIG_CFLAGS)
             .concat(ADDON_CFLAGS)
             .concat(cxxFlags)
