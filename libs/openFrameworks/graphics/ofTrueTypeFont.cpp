@@ -1100,6 +1100,9 @@ void ofTrueTypeFont::iterateString(const string & str, float x, float y, bool vF
 
 	string str_valid;
 	utf8::replace_invalid(str.begin(),str.end(),back_inserter(str_valid));
+	if (str_valid.size() <= 0) {
+		return;
+	}
 	utf8::iterator<const char*> it(&str_valid.front(), &str_valid.front(), (&str_valid.back())+1);
 	utf8::iterator<const char*> end((&str_valid.back())+1, &str_valid.front(), (&str_valid.back())+1);
 	uint32_t prevC = 0;
