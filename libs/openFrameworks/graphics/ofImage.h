@@ -16,12 +16,20 @@
 /// the pixels.
 ///
 
-/// \todo Needs documentation.
+/// \brief Used for controlling the save quality of JPEGs.
+///
+/// These values are directly mapped to FreeImage's JPEG quality flags.
+/// \sa http://freeimage.sourceforge.net/fnet/html/E77CD483.htm
 enum ofImageQualityType {
+    /// \brief Equivalent to FreeImage's JPEG_QUALITYSUPERB (100:1 ratio) 
     OF_IMAGE_QUALITY_BEST,
+    /// \brief Equivalent to FreeImage's JPEG_QUALITYGOOD (75:1 ratio) 
     OF_IMAGE_QUALITY_HIGH,
+    /// \brief Equivalent to FreeImage's JPEG_QUALITYNORMAL (50:1 ratio)
     OF_IMAGE_QUALITY_MEDIUM,
+    /// \brief Equivalent to FreeImage's JPEG_QUALITYAVERAGE (25:1 ratio)
     OF_IMAGE_QUALITY_LOW,
+    /// \brief Equivalent to FreeImage's JPEG_QUALITYBAD (10:1 ratio)
     OF_IMAGE_QUALITY_WORST
 };
 
@@ -64,6 +72,46 @@ enum ofImageFormat {
     OF_IMAGE_FORMAT_PICT    = 33,
     OF_IMAGE_FORMAT_RAW     = 34
 };
+
+inline std::string ofImageFormatExtension(ofImageFormat format){
+    switch(format){
+    case OF_IMAGE_FORMAT_BMP: return "bmp";
+    case OF_IMAGE_FORMAT_ICO: return "ico";
+    case OF_IMAGE_FORMAT_JPEG: return "jpg";
+    case OF_IMAGE_FORMAT_JNG: return "jng";
+    case OF_IMAGE_FORMAT_KOALA: return "koala";
+    case OF_IMAGE_FORMAT_LBM: return "lbm";
+    case OF_IMAGE_FORMAT_MNG: return "mng";
+    case OF_IMAGE_FORMAT_PBM: return "pbm";
+    case OF_IMAGE_FORMAT_PBMRAW: return "pbm";
+    case OF_IMAGE_FORMAT_PCD: return "pcd";
+    case OF_IMAGE_FORMAT_PCX: return "pcx";
+    case OF_IMAGE_FORMAT_PGM: return "pgm";
+    case OF_IMAGE_FORMAT_PGMRAW: return "pgm";
+    case OF_IMAGE_FORMAT_PNG: return "png";
+    case OF_IMAGE_FORMAT_PPM: return "ppm";
+    case OF_IMAGE_FORMAT_PPMRAW: return "ppm";
+    case OF_IMAGE_FORMAT_RAS: return "ras";
+    case OF_IMAGE_FORMAT_TARGA: return "tga";
+    case OF_IMAGE_FORMAT_TIFF: return "tif";
+    case OF_IMAGE_FORMAT_WBMP: return "wbmp";
+    case OF_IMAGE_FORMAT_PSD: return "psd";
+    case OF_IMAGE_FORMAT_CUT: return "cut";
+    case OF_IMAGE_FORMAT_XBM: return "xbm";
+    case OF_IMAGE_FORMAT_XPM: return "xpm";
+    case OF_IMAGE_FORMAT_DDS: return "dds";
+    case OF_IMAGE_FORMAT_GIF: return "gif";
+    case OF_IMAGE_FORMAT_HDR: return "hdr";
+    case OF_IMAGE_FORMAT_FAXG3: return "faxg3";
+    case OF_IMAGE_FORMAT_SGI: return "sgi";
+    case OF_IMAGE_FORMAT_EXR: return "exr";
+    case OF_IMAGE_FORMAT_J2K: return "j2k";
+    case OF_IMAGE_FORMAT_JP2: return "jp2";
+    case OF_IMAGE_FORMAT_PFM: return "pfm";
+    case OF_IMAGE_FORMAT_PICT: return "pict";
+    case OF_IMAGE_FORMAT_RAW: return "raw";
+    }
+}
 
 /// \todo Needs documentation.
 struct ofImageLoadSettings {
@@ -591,6 +639,9 @@ public:
     template<typename SrcType>
     ofImage_<PixelType>& operator= (const ofImage_<SrcType>& mom);
     
+    //move assignment
+    ofImage_<PixelType>& operator=(ofImage_<PixelType>&& mom);
+
     /// \}
     ///< \sa ofImageType
     
