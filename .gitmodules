@@ -5,3 +5,6 @@
 	path = apps/ofCG221Apps
 	url = ssh://cglab.ik.w-hs.de/gitrepos/ofCG221Apps
 
+[submodule "scripts/apothecary"]
+	path = scripts/apothecary
+	url = ../../openframeworks/apothecary
